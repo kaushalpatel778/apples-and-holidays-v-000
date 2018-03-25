@@ -43,7 +43,7 @@ def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_arr
 #  holiday_hash[:season][:holiday_name] = supply_array
  holiday_hash[:fall][:columbus_day] =  ["Flags", "Parade Floats", "Italian Food"]
  holiday_hash[:winter][:valentines_day] = ["Cupid Cut-Out", "Candy Hearts"]
- holiday_hash.delete_if {|keys,value| keys == "valentines_day"}
+ holiday_hash[:winter].keys delete(:valentines_day)
   holiday_hash
 end
 
