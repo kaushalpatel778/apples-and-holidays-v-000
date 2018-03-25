@@ -38,7 +38,7 @@ def add_supply_to_memorial_day(holiday_hash, supply)
 end
 
 def add_new_holiday_with_supplies(holiday_hash, season, holiday_name, supply_array)
-  # code here 
+  # code here
   # remember to return the updated hash
 #  holiday_hash[:season][:holiday_name] = supply_array
 
@@ -69,15 +69,9 @@ end
 def all_holidays_with_bbq(holiday_hash)
   # return an array of holiday names (as symbols) where supply lists
   # include the string "BBQ"
-
-    holiday_hash.each do |holiday_name,supply| supply
-
-        # puts supp
-          supply.each do |key,value| value
-              #puts value
-             # puts key
-                return key if value == "BBQ"
-          end
-    end
-
+  holiday_hash.collect{ |season, holidays|
+     holidays.select{ |holiday, supplies|
+       supplies.include?("BBQ")
+     }.keys
+   }.flatten
 end
